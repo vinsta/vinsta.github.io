@@ -1,9 +1,13 @@
 ---
 layout: post
-title:  "How to use SSH to connect Github"
+title:  "如何使用SSH连接Github"
 date:   2016-06-20 14:53:54
 categories: Github
 ---
+
+* content
+{:toc}
+
 本文简单介绍了使用SSH连接Github的步骤。
 
 ##1. 检查SSH Key是否存在
