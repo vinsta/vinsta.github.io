@@ -3,6 +3,7 @@ layout: post
 title:  "如何使用SSH连接Github"
 date:   2016-06-20 14:53:54
 categories: Github
+excerpt: 连接Github的方式
 ---
 
 * content
