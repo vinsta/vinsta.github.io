@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "如何使用SSH连接Github"
+title:  "How to use SSH to connect Github"
 date:   2016-06-20 14:53:54
 categories: Github
 ---
@@ -41,6 +41,4 @@ Enter same passphrase again: [Type passphrase again]
 
 ## 大功告成，现在可以使用SSH方式clone仓库或者下载、上传修改了。
 
-<pre>
-[参考链接] https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account
-</pre>
+参考链接 [Github Help](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account)
