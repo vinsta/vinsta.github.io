@@ -7,11 +7,11 @@ tags:   SSH Github tool
 
 * content
 {:toc}
+简单介绍如果使用SSH方式连接Github，来clone仓库或者下载、上传修改。
 
 
 ## 检查SSH Key是否存在
-使用`ls -al ~/.ssh`命令查看SSH key，通常key成对使用，其中公钥的名字为"idrsa.pub"， 私钥的名字为"idrsa"。
-
+使用`ls -al ~/.ssh`命令查看SSH key，通常key成对使用，其中公钥的名字为`id_rsa.pub`， 私钥的名字为`id_rsa`。
 <pre><code class="markdown">
 $ ls -al ~/.ssh
 total 20
@@ -26,7 +26,6 @@ drwxr-xr-x 5 jing jing 4096  6月20 14:38 ../
 
 ## 生成SSH Key
 使用下面的命令来生成key pair，使用邮件地址做标签用于识别。命令执行过程中会要求输入保存key的路径和文件名，一般默认即可。
-
 <pre><code class="markdown">
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 </code></pre>
@@ -39,10 +38,10 @@ Enter same passphrase again: [Type passphrase again]
 </code></pre>
 
 ## 将SSH公钥添加到Github账户
-- 拷贝公钥id\_isa.pub的内容
-- 进入Github账户设置页面"Setting->SSH and GPG keys->New SSH key"
-- 粘贴公钥内容
-- 点击"Add SSH key"按钮
+- 拷贝公钥id\_isa.pub的内容。
+- 进入Github账户设置页面`Setting->SSH and GPG keys->New SSH key`。
+- 粘贴公钥内容。
+- 点击`Add SSH key`按钮添加。
 
-## 大功告成，现在可以使用SSH方式clone仓库或者下载、上传修改了。
+## 大功告成，现在可以使用git命令来操作仓库了。
 
