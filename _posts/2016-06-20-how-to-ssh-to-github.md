@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "如何使用SSH连接Github"
-categories: jekyll
-tags:   SSH Github tool
+categories: Tools
+tags:   SSH Github tools
 ---
 
 * content
 {:toc}
 
-简单介绍如果使用SSH方式连接Github，来clone仓库或者下载、上传修改。
+简单介绍如何使用SSH方式连接Github，来clone仓库或者下载、上传修改。
 
 
 
