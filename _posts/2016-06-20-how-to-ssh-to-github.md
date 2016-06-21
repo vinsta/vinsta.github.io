@@ -2,19 +2,16 @@
 layout: post
 title:  "如何使用SSH连接Github"
 categories: Tools
+exerpt: 简单介绍如何使用SSH方式连接Github来clone仓库或者下载和上传修改。
 tags:   SSH Github tools
 ---
 
 * content
 {:toc}
 
-简单介绍如何使用SSH方式连接Github，来clone仓库或者下载、上传修改。
-
-
-
 ## 检查SSH Key是否存在
 使用`ls -al ~/.ssh`命令查看SSH key，通常key成对使用，其中公钥的名字为`id_rsa.pub`， 私钥的名字为`id_rsa`。
-<pre><code class="markdown">
+<code class="markdown">
 $ ls -al ~/.ssh
 total 20
 drwx------ 2 jing jing 4096  6月20 11:14 ./
@@ -22,7 +19,7 @@ drwxr-xr-x 5 jing jing 4096  6月20 14:38 ../
 -rw------- 1 jing jing 3326  6月20 11:14 id_rsa
 -rw-r--r-- 1 jing jing  740  6月20 11:14 id_rsa.pub
 -rw-r--r-- 1 jing jing  884  6月20 11:08 known_hosts
-</code></pre>
+</code>
 
 如果key pair不存在，继续第2步，否则可以跳过第2步，直接看第3步。
 
