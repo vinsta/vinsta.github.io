@@ -11,6 +11,7 @@ tags:   SSH Github tools
 
 ## 检查SSH Key是否存在
 使用`ls -al ~/.ssh`命令查看SSH key，通常key成对使用，其中公钥的名字为`id_rsa.pub`， 私钥的名字为`id_rsa`。
+
 ```
 $ ls -al ~/.ssh
 total 20
@@ -21,20 +22,25 @@ drwxr-xr-x 5 jing jing 4096  6月20 14:38 ../
 -rw-r--r-- 1 jing jing  884  6月20 11:08 known_hosts
 ```
 
+
 如果key pair不存在，继续第2步，否则可以跳过第2步，直接看第3步。
 
 ## 生成SSH Key
 使用下面的命令来生成key pair，使用邮件地址做标签用于识别。命令执行过程中会要求输入保存key的路径和文件名，一般默认即可。
+
 ```
 $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 ```
 
+
 下面提示是否需要设置密码。如果设置密码，每次跟Github交互都需要输入密码。
 如果不需要设置密码，直接留空回车即可。
+
 ```
 Enter passphrase (empty for no passphrase): [Type a passphrase]
 Enter same passphrase again: [Type passphrase again]
 ```
+
 
 ## 将SSH公钥添加到Github账户
 - 拷贝公钥id\_isa.pub的内容。
