@@ -2,7 +2,7 @@
 layout: post
 title:  "如何使用SSH连接Github"
 categories: Tools
-exerpt: 简单介绍如何使用SSH方式连接Github来clone仓库或者下载和上传修改。
+excerpt: 简单介绍如何使用SSH方式连接Github来clone仓库或者下载和上传修改。
 tags:   SSH Github tools
 ---
 
