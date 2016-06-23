@@ -9,17 +9,17 @@ tags:   android activity notes
 * content
 {:toc}
 
-## 使用Log打印
+## **使用Log打印**
 Android中的日志工具类是Log（android.util.Log），提供了下面几个方法来打印日志：
-* Log.v(): 打印最为琐碎的，意义最小的日志信息。对应级别是verbose。
-* Log.d(): 打印一些调试信息，对调试程序和分析问题应该有所帮助。
-* Log.i(): 打印一些比较重要的数据，应该是非常想看到的，可以帮助分析用户行为的。
-* Log.w(): 打印一些警告信息，提示程序在这个地方可能会有潜在的风险，最好去修复一下出现警告的地方。
-* Log.e(): 打印程序中的错误信息，一般表示程序出现了严重问题，必须尽快修复。
+-Log.v(): 打印最为琐碎的，意义最小的日志信息。对应级别是verbose。
+-Log.d(): 打印一些调试信息，对调试程序和分析问题应该有所帮助。
+-Log.i(): 打印一些比较重要的数据，应该是非常想看到的，可以帮助分析用户行为的。
+-Log.w(): 打印一些警告信息，提示程序在这个地方可能会有潜在的风险，最好去修复一下出现警告的地方。
+-Log.e(): 打印程序中的错误信息，一般表示程序出现了严重问题，必须尽快修复。
 
 Log方法一般含有两个输入参数，第一个是tag，可以是任意字符串，用来过滤打印信息，一般可以设为当前类名。第二个参数是msg，就是要打印的具体内容。
 
-```
+```java
 Log.d("test", "This is a test for log.")
 ```
 
@@ -27,14 +27,14 @@ Log.d("test", "This is a test for log.")
 ## 隐藏活动的标题栏
 在活动的onCreate()方法中，添加以下代码，注意必须放在setContentView()调用之前。
 
-```
+```java
 requestWindowFeature(Window.FEATURE_NO_TITLE)
 ```
 
 ## 消息通知--Toast
 Toast可以用于在界面上弹出一些信息通知用户，一段时间后信息会自动消失，并且不占用任何屏幕空间。
 
-```
+```java
 Toast.makeText(MainActivity.this, "This is a Toast!", Toast.LENGTH_SHORT).show()
 ```
 
@@ -55,7 +55,7 @@ makeText()有三个输入参数，第一个是上下文，第二个是显示的�
 ### 显式Intent
 这种方式显式地指定了目标活动
 
-```
+```java
 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 startActivity(intent);
 ```
@@ -67,7 +67,7 @@ startActivity(intent);
 
 intent-filter中可以有多条category，只要能匹配其中任意一条category即可。
 
-```
+```xml
 <intent-filter>
     <action android:name="com.example.activitytest.ACTION_START" />
     <category android:name="android.intent.category.DEFAULT" />
@@ -76,13 +76,13 @@ intent-filter中可以有多条category，只要能匹配其中任意一条categ
 
 在创建intent的时候，可以使用addCategory方法来添加category。
 
-```
+```java
 intent.addCategory("com.example.activitytest.MY_CATEGORY");
 ```
 
 隐式Intent还能够启动其它程序的活动，使得Android多个应用之间可以功能共享。
 
-```
+```java
 Intent intent = new Intent(Intent.ACTION_VIEW);
 intent.setData(Uri.parse("http://www.baidu.com"));
 startActivity(intent);
@@ -104,7 +104,7 @@ Intent提供了一系列putExtra()方法的重载，可以把想要传递的数�
 
 发送数据示例代码
 
-```
+```java
 String data = "hello world";
 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 intent.putExtra("extra_data", data);
@@ -113,7 +113,7 @@ startActivity(intent);
 
 接收数据示例代码
 
-```
+```java
 Intent intent = getIntent();
 String data = intent.getStringExtra("extra_data");
 ```
@@ -125,7 +125,7 @@ startActivityForResult()也可用于启动Activity，但是期望在被启动Act
 
 调用Activity示例代码
 
-```
+```java
 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 startActivityForResult(intent, 1);
 ```
@@ -134,7 +134,7 @@ setResult()是专门用于向上一个Activity返回数据的，一般包含两�
 
 被调用Activity示例代码
 
-```
+```java
 Intent intent = new Intent()
 intent.putExtra("data_return", "Hello World");
 setResult(RESULT_OK, intent);
@@ -143,7 +143,7 @@ finish();
 
 使用startActivityForResult()方法启动Activity时，在被启动的Activity被销毁之后会回调上一个Activity的onActivityResult()方法。
 
-```
+```java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     switch (requestCode) {
     case 1:
