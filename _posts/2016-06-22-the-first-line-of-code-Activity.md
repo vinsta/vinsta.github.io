@@ -9,7 +9,7 @@ tags:   android activity notes
 * content
 {:toc}
 
-## **使用Log打印
+## **使用Log打印**
 Android中的日志工具类是Log（android.util.Log），提供了下面几个方法来打印日志：
 -  Log.v(): 打印最为琐碎的，意义最小的日志信息。对应级别是verbose。
 -  Log.d(): 打印一些调试信息，对调试程序和分析问题应该有所帮助。
@@ -30,7 +30,7 @@ Log.d("test", "This is a test for log.")
 ```java
 requestWindowFeature(Window.FEATURE_NO_TITLE)
 ```
-___
+
 ## **消息通知--`Toast`**
 `Toast`可以用于在界面上弹出一些信息通知用户，一段时间后信息会自动消失，并且不占用任何屏幕空间。
 
@@ -41,14 +41,14 @@ Toast.makeText(MainActivity.this, "This is a Toast!", Toast.LENGTH_SHORT).show()
 使用静态方法`makeText()`创建Toast对象，然后调用`show()`显示即可。
 
 `makeText()`有三个输入参数，第一个是上下文，第二个是显示的文本内容，第三个是显示的时长，有两个内置常量`Toast.LENGTH_SHORT`和`Toast.LENGTH_LONG`可以使用。
-___
+
 ## **使用菜单**
-___
+
 ## **Activity的销毁**
 有两种方法：
 +  直接按Back键。
 +  在代码中调用Activity类的`finish()`方法。
-___
+
 ## **多个Activity的切换**
 通过Intent可以启动另一个Activity，并且在被启动或者返回的Activity之间传递数据。
 
@@ -59,7 +59,7 @@ ___
 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 startActivity(intent);
 ```
----
+
 ### 隐式Intent
 这种方式并不明确指定目标Activity，只是表明目标Action和category等信息，由系统根据这些信息自动选择启动能够响应该Intent的Activity。
 
@@ -98,7 +98,7 @@ intent-filter中可以增加data标签，更加精确的响应当前活动能响
 *  android:port: 数据的端口部分。
 *  android:path: 数据的主机名和端口之后的部分，如网址中跟在域名之后的内容。
 *  android:mimeType: 数据类型，可以使用通配符。
----
+
 ### 向被启动的Activity传递数据
 Intent提供了一系列`putExtra()`方法的重载，可以把想要传递的数据暂存在Intent中，另一个Activity启动之后，从Intent中取出数据即可。
 
@@ -119,7 +119,7 @@ String data = intent.getStringExtra("extra_data");
 ```
 
 不同类型的数据可以调用不同的方法来获取，比如`getIntExtra()`, `getBooleanExtra()`。
----
+
 ### 返回数据给上一个Activity
 `startActivityForResult()`也可用于启动Activity，但是期望在被启动Activity销毁时能够返回结果给上一个Activity。这个方法有两个参数，第一个是Intent，第二个是请求ID，用于在回调中判断数据来源。
 
@@ -156,7 +156,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 如果通过点击Back键返回，这时为了向上一个Activity返回数据，可以重写`onBackPressed()`方法。
-___
+
 ## **Activity的生存期**
 Android使用任务和栈来管理Activity。一个任务是一组放在栈中的Activity的集合，而栈是一种后入先出的数据结构。
 
