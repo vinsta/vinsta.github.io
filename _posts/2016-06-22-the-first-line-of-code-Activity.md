@@ -49,7 +49,6 @@ Toast.makeText(MainActivity.this, "This is a Toast!", Toast.LENGTH_SHORT).show()
 有两种方法：
 
 + 直接按Back键。
-
 + 在代码中调用Activity类的`finish()`方法。
 
 ## **多个Activity的切换**
@@ -98,13 +97,9 @@ startActivity(intent);
 intent-filter中可以增加data标签，更加精确的响应当前活动能响应的数据类型。只有data标签中的内容跟intent中的内容完全匹配时，当前Activity才能响应此intent。data标签主要包含：
 
 * android:schema: 数据的协议部分，如http。
-
 * android:host: 数据的主机名部分。
-
 * android:port: 数据的端口部分。
-
 * android:path: 数据的主机名和端口之后的部分，如网址中跟在域名之后的内容。
-
 * android:mimeType: 数据类型，可以使用通配符。
 
 ### 向被启动的Activity传递数据
@@ -174,8 +169,6 @@ Activity的状态可以划分为运行状态、暂停状态、停止状态和销
 根据Activity提供的回调函数，有三种生存期的定义。
 
 * 完整生存期：在`onCreate()`和`onDestroy()`之间，一般`onCreate()`会完成各种初始化操作，`onDestroy()`完成释放内存的操作。
-
 * 可见生存期：在`onStart()`和`onStop()`之间，在这期间，activity对用户总是可见的（也许不能进行交互）。这两个方法可以用于合理管理用户可见的资源。
-
 * 前台生存期：在`onResume()`和`onPause()`之间，activity处于运行状态，并且可以和用户进行交互。
 
