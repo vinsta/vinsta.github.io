@@ -15,7 +15,7 @@ Android中的日志工具类是Log（android.util.Log），提供了下面几个
 - `Log.v()`: 打印最为琐碎的，意义最小的日志信息。对应级别是verbose。
 - `Log.d()`: 打印一些调试信息，对调试程序和分析问题应该有所帮助。
 - `Log.i()`: 打印一些比较重要的数据，应该是非常想看到的，可以帮助分析用户行为的。
-- `Log.w()`: 打印一些警告信息，提示程序在这个地方可能会有潜在的风险，最好去修复一下出现警告的地方。
+- `Log.w()`: 打印一些警告信息，提示程序可能会有潜在的风险，最好去修复出现警告的地方。
 - `Log.e()`: 打印程序中的错误信息，一般表示程序出现了严重问题，必须尽快修复。
 
 Log方法一般含有两个输入参数，第一个是tag，可以是任意字符串，用来过滤打印信息，一般可以设为当前类名。第二个参数是msg，就是要打印的具体内容。
@@ -44,6 +44,161 @@ Toast.makeText(MainActivity.this, "This is a Toast!", Toast.LENGTH_SHORT).show()
 `makeText()`有三个输入参数，第一个是上下文，第二个是显示的文本内容，第三个是显示的时长，有两个内置常量`Toast.LENGTH_SHORT`和`Toast.LENGTH_LONG`可以使用。
 
 ## **使用菜单**
+
+### 选项菜单（optionsMenu）
+点击`menu`键时，打开的就是选项菜单。选项菜单提供了几个有用的方法，可以根据实际需要选择重载。选项菜单还可以使用自定义图标（setIcon()方法）。
+
+- `public boolean onCreateOptionsMenu(Menu menu)`：第一次打开菜单时调用，如果返回`false`，则菜单不会被显示。
+- `public boolean onOptionsItemSelected(MenuItem item)`: 选择菜单项后的响应处理。
+- `public boolean onOptionsMenuClosed(Menu menu)`: 菜单关闭时的处理。
+- `public boolean onPrepareOptionsMenu(Menu menu)`：菜单显示之前的处理。
+- `public boolean onMenuOpened(int featureId, Menu menu)`: 菜单打开之后的处理。
+
+使用自定义菜单，需要先在android工程的`res`目录下创建一个`menu`目录，然后在该目录下创建一个菜单资源文件。下面是一个简单的例子：
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/id_menu_add_item"
+        android:title="Add" />
+    <item
+        android:id="@+id/id_menu_remove_item"
+        android:title="Remove" />
+</menu>
+```
+
+然后需要重载`onCreateOptionsMenu()`方法，这个方法的返回值表示当按下`menu`键时，该菜单是否可见。
+
+
+```java
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.main, menu);
+    return true;
+}
+```
+
+最后添加点击菜单的响应事件。先在菜单资源文件中为菜单项指定`onClick`对应的处理方法。
+
+```xml
+<item
+    ...
+    android:onClick="onClickMenuAddItem" />
+<item
+    ...
+    android:onClick="onClickMenuRemoveItem" />
+```
+
+然后定义这些处理方法的实现。
+
+```java
+public void onClickMenuAddItem(MenuItem item) {
+    Toast.makeText(MainActivity.this, "Add item menu is selected!", Toast.LENGTH_SHORT).show();
+}
+
+public void onClickMenuRemoveItem(MenuItem item) {
+    Toast.makeText(MainActivity.this, "Remove item menu is selected!", Toast.LENGTH_SHORT).show();
+}
+```
+
+另一种添加菜单响应事件的方法是重载`onOptionsItemSelected()`。这种情况下，不需要在菜单资源文件中为菜单项指定`onClick`属性。
+
+```java
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case R.id.id_menu_add_item:
+            Toast.makeText(this, "You clicked Add", Toast.LENGTH_SHORT).show();
+            break;
+        case R.id.id_menu_remove_item:
+            Toast.makeText(this, "You clicked Remove", Toast.LENGTH_SHORT).show();
+            break;
+        default:
+            break;
+    }
+    return true;
+}
+```
+
+测试发现，当同时使用这两种方法响应菜单事件时，前一种方法（使用`onClick`属性）优先级更高。
+
+### 上下文菜单（ContextMenu）
+长按Activity界面时，打开的菜单就是上下文菜单。上下文菜单的使用方法跟选项菜单基本相同，也同样有几个方法可以按需要重载。
+
+- `public boolean onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo)`: 打开菜单时的调用处理。
+- `public boolean onContextItemSelected(MenuItem item)`: 菜单项的响应处理。
+- `public boolean onContextMenuClosed(Menu menu)`: 菜单关闭时的处理。
+- `public boolean onMenuOpened(int featureId, Menu menu)`: 菜单打开之后的
+- `public boolean registerForContextMenu(View view)`: 为视图注册上下文菜单。
+
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    requestWindowFeature(Window.FEATURE_NO_TITLE);
+    setContentView(R.layout.activity_main);
+    TextView tv = (TextView) findViewById(R.id.id_text_view_test);
+    registerForContextMenu(tv);
+}
+
+@Override
+public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+    menu.add(0, Menu.FIRST, Menu.NONE, "Context Menu 1");
+    menu.add(0, Menu.FIRST+1, Menu.NONE, "Context Menu 2");
+}
+
+@Override
+public boolean onContextItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case Menu.FIRST:
+            Toast.makeText(this, "You clicked context menu item 1", Toast.LENGTH_SHORT).show();
+            break;
+        case Menu.FIRST+1:
+            Toast.makeText(this, "You clicked context menu item 2", Toast.LENGTH_SHORT).show();
+            break;
+        default:
+            break;
+    }
+    return true;
+}
+```
+
+### 子菜单（SubMenu）
+子菜单是将菜单分组进行多级显示的一种菜单。子菜单中不能再嵌套子菜单。使用子菜单的方法如下：
+
+- 重载`onCreateOptionsMenu()`或者`onCreateContextMenu()`, 调用Menu的`addSubMenu(String title)`方法添加子菜单。
+- 调用子菜单的`add(int groupId, int itemId, int order, String title)`方法，添加子菜单项。
+  - groupId: 可以对菜单项进行分组，便于对一组菜单项进行统一操作。
+  - itemId： 用于唯一识别菜单项，在响应菜单时需要根据itemId来判断哪一个菜单被选择。
+  - order：菜单项的排列顺序，数值小的排在前面。
+  - title： 菜单项显示的文本。
+- 重载`onOptionsItemSelected()`或者`onContextItemSelected()`方法，响应菜单事件。
+
+```java
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+    SubMenu subMenuFile = menu.addSubMenu("File");
+    subMenuFile.add(0, Menu.FIRST, Menu.NONE, "Open");
+    subMenuFile.add(0, Menu.FIRST+1, Menu.NONE, "Save");
+    return true;
+}
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+        case Menu.FIRST:
+            Toast.makeText(this, "You clicked File-Open", Toast.LENGTH_SHORT).show();
+            break;
+        case Menu.FIRST+1:
+            Toast.makeText(this, "You clicked File-Save", Toast.LENGTH_SHORT).show();
+            break;
+        default:
+            break;
+    }
+    return true;
+}
+```
 
 ## **Activity的销毁**
 有两种方法：
