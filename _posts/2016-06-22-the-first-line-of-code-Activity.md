@@ -212,9 +212,11 @@ public boolean onOptionsItemSelected(MenuItem item) {
 ### 手动创建新的Activity
 
   - 在`res`->`layout`目录下为新的activity创建layout资源文件。
-  - 在`java`->`package`下为新的Activity创建一个类
+  - 在`java`->`package`下为新的Activity创建一个类。
+
 ```java
 public class SecondActivity extends Activity{
+    ...
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -224,7 +226,9 @@ public class SecondActivity extends Activity{
     }
 }
 ```
+
   - 在androidManifest.xml中注册这个新的activity类。
+
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     ...
@@ -235,6 +239,7 @@ public class SecondActivity extends Activity{
     </application>
 </manifest>
 ```
+
 现在可以使用新的Activity了。
 
 ### 显式Intent
