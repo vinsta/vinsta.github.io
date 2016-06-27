@@ -209,6 +209,34 @@ public boolean onOptionsItemSelected(MenuItem item) {
 ## **多个Activity的切换**
 通过Intent可以启动另一个Activity，并且在被启动或者返回的Activity之间传递数据。
 
+### 手动创建新的Activity
+
+  - 在`res`->`layout`目录下为新的activity创建layout资源文件。
+  - 在`java`->`package`下为新的Activity创建一个类
+```java
+public class SecondActivity extends Activity{
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setContentView(R.layout.activity_second);
+    }
+}
+```
+  - 在androidManifest.xml中注册这个新的activity类。
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    ...
+    <application
+        ...
+        <activity android:name="SecondActivity">
+        </activity>
+    </application>
+</manifest>
+```
+现在可以使用新的Activity了。
+
 ### 显式Intent
 这种方式显式地指定了目标活动
 
@@ -228,13 +256,16 @@ intent-filter中可以有多条category，只要能匹配其中任意一条categ
 <intent-filter>
     <action android:name="com.example.activitytest.ACTION_START" />
     <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="com.example.activitytest.MY_CATEGORY" />
 </intent-filter>
 ```
 
 在创建intent的时候，可以使用`addCategory()`方法来添加category。
 
 ```java
+Intent intent = new Intent("com.example.activitytest.ACTION_START");
 intent.addCategory("com.example.activitytest.MY_CATEGORY");
+startActivity(intent);
 ```
 
 隐式Intent还能够启动其它程序的活动，使得Android多个应用之间可以功能共享。
@@ -288,18 +319,22 @@ Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 startActivityForResult(intent, 1);
 ```
 
-`setResult()`是专门用于向上一个Activity返回数据的，一般包含两个参数，第一个参数用于向上一个Activity返回处理结果，一般只有`RESULT_OK`和`RESULT_CANCELED`两个值，第二个参数是带有数据的Intent。
-
-被调用Activity示例代码
+被调用Activity示例代码（点击按键退出，并返回到上一个Activity）：
 
 ```java
-Intent intent = new Intent()
-intent.putExtra("data_return", "Hello World");
-setResult(RESULT_OK, intent);
-finish();
+public void onClickButtonTest() {
+    Intent intent = new Intent()
+    intent.putExtra("data_return", "Hello World");
+    setResult(RESULT_OK, intent);
+    finish();
+}
 ```
 
-使用`startActivityForResult()`方法启动Activity时，在被启动的Activity被销毁之后会回调上一个Activity的`onActivityResult()`方法。
+如果通过点击Back键返回，这时为了向上一个Activity返回数据，可以重写`onBackPressed()`方法。
+
+`setResult()`是专门用于向上一个Activity返回数据的，一般包含两个参数，第一个参数用于向上一个Activity返回处理结果，一般只有`RESULT_OK`和`RESULT_CANCELED`两个值，第二个参数是带有数据的Intent。
+
+使用`startActivityForResult()`方法启动Activity时，在被启动的Activity被销毁之后会回调上一个Activity的`onActivityResult()`方法，所以可以重载`onActivityResult()`来获取返回的数据。
 
 ```java
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -312,8 +347,6 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
 ```
-
-如果通过点击Back键返回，这时为了向上一个Activity返回数据，可以重写`onBackPressed()`方法。
 
 ## **Activity的生存期**
 Android使用任务和栈来管理Activity。一个任务是一组放在栈中的Activity的集合，而栈是一种后入先出的数据结构。
