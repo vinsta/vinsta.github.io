@@ -365,3 +365,34 @@ Activity的状态可以划分为运行状态、暂停状态、停止状态和销
 * 可见生存期：在`onStart()`和`onStop()`之间，在这期间，activity对用户总是可见的（也许不能进行交互）。这两个方法可以用于合理管理用户可见的资源。
 * 前台生存期：在`onResume()`和`onPause()`之间，activity处于运行状态，并且可以和用户进行交互。
 
+- 当创建并显示一个Activity时，Activity会依次调用`onCreate()`->`onStart()`->`onResume()`。
+- 当一个Activity被另一个Activity覆盖时，前者会依次调用`onPause()`->`onStop()`。
+- 当一个Activity恢复显示时，Activity会依次调用`onRestart()`->`onStart()`->`onResume()`。
+- 当一个Activity弹出一个对话框时，Activity会调用`onPause()`。
+- 当一个Activity上的对话框关闭时，Activity会调用`onResume()`。
+- 当一个Activity销毁时，Activity会依次调用`onPause()`->`onStop()`->`onDestroy()`。
+
+当系统资源不足时，处于Stop状态的Activity可能会被回收，当再次显示的时候会调用`onCreate()`重新创建，但是会丢失之前的临时数据。这种情况下，可以重载`onSaveInstanceState()`来保存临时数据，这个方法会保证一定能在Activity被回收之前调用。
+
+```java
+@Override
+protected void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    String tempData = "Something you just typed";
+    outState.putString("data_key", tempData);
+}
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    ...
+    if (savedInstanceState != NULL) {
+        String tempData = savedInstanceState.getString("data_key");
+        Log.d("MainActivity", tempData);
+    }
+}
+```
+
+`onCreate()`有一个Bundle类型的参数，一般情况下都是`null`，但是活动被系统回收前通过`onSaveInstanceState()`方法保存数据的话，这个参数就会带有之前保存的全部数据。
+
+使用Bundle传递数据跟使用Intent的方式类似。Bundle也提供其它方法，比如`putInt()`保存整型数据。Bundle还可以和Intent结合使用，把要传递的数据都保存在Bundle中，然后把Bundle放在Intent中传递。
+
