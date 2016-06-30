@@ -365,6 +365,7 @@ Activity的状态可以划分为运行状态、暂停状态、停止状态和销
 * 可见生存期：在`onStart()`和`onStop()`之间，在这期间，activity对用户总是可见的（也许不能进行交互）。这两个方法可以用于合理管理用户可见的资源。
 * 前台生存期：在`onResume()`和`onPause()`之间，activity处于运行状态，并且可以和用户进行交互。
 
+
 - 当创建并显示一个Activity时，Activity会依次调用`onCreate()`->`onStart()`->`onResume()`。
 - 当一个Activity被另一个Activity覆盖时，前者会依次调用`onPause()`->`onStop()`。
 - 当一个Activity恢复显示时，Activity会依次调用`onRestart()`->`onStart()`->`onResume()`。
@@ -402,7 +403,7 @@ protected void onCreate(Bundle savedInstanceState) {
 - standard：这是Activity的默认启动模式。这种模式下，每一个新的Activity都会处于返回栈的栈顶位置。每次启动都会创建Activity的一个新的实例。
 - singleTop: 在启动Activity时如果发现该Activity已经位于返回栈顶，则直接使用它而不再创建新的实例。
 - singleTask: 在整个应用程序的上下文中只存在Activity的一个实例。每次启动该Activity时，系统首先检查返回栈中是否存在实例，如果存在则直接使用该实例，并把该Activity之上的所有活动出栈（销毁回收）。
-- 该模式的Activity会启用一个新的返回栈来管理该Activity。用于在不同程序间共享Activity。
+- singleInstance: 该模式的Activity会启用一个新的返回栈来管理该Activity。用于在不同程序间共享Activity。
 
 ## **活动的最佳实践**
 
