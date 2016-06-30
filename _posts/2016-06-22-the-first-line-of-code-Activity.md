@@ -396,3 +396,20 @@ protected void onCreate(Bundle savedInstanceState) {
 
 使用Bundle传递数据跟使用Intent的方式类似。Bundle也提供其它方法，比如`putInt()`保存整型数据。Bundle还可以和Intent结合使用，把要传递的数据都保存在Bundle中，然后把Bundle放在Intent中传递。
 
+## **活动的启动模式**
+可以通过在AndroidManifest.xml中通过给标签`<activity>`指定`android:launchMode`属性来选择下面四种启动模式：
+
+- standard：这是Activity的默认启动模式。这种模式下，每一个新的Activity都会处于返回栈的栈顶位置。每次启动都会创建Activity的一个新的实例。
+- singleTop: 在启动Activity时如果发现该Activity已经位于返回栈顶，则直接使用它而不再创建新的实例。
+- singleTask: 在整个应用程序的上下文中只存在Activity的一个实例。每次启动该Activity时，系统首先检查返回栈中是否存在实例，如果存在则直接使用该实例，并把该Activity之上的所有活动出栈（销毁回收）。
+- 该模式的Activity会启用一个新的返回栈来管理该Activity。用于在不同程序间共享Activity。
+
+## **活动的最佳实践**
+
+- 为自己用到的Activity创建一个基类，该基类继承自`Activity`类，这样可以在基类中进行一些通用简单的操作。
+- 为了实现一键退出，可以创建一个工具类，提供几个静态方法。
+  - 添加Activity到列表保存。
+  - 从列表中删除一个Activity。
+  - 销毁回收列表中的所有Activity。
+- 在Activity中实现静态的方法来启动Activity，将启动所需要的信息放在该方法的参数列表中，可以方便的启动Activity，并直观的看到启动Activity所需要的信息。
+
