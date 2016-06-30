@@ -365,6 +365,7 @@ Activity的状态可以划分为运行状态、暂停状态、停止状态和销
 * 可见生存期：在`onStart()`和`onStop()`之间，在这期间，activity对用户总是可见的（也许不能进行交互）。这两个方法可以用于合理管理用户可见的资源。
 * 前台生存期：在`onResume()`和`onPause()`之间，activity处于运行状态，并且可以和用户进行交互。
 
+下面总结了当Activity在不同状态间切换时，几个函数的调用次序。
 
 - 当创建并显示一个Activity时，Activity会依次调用`onCreate()`->`onStart()`->`onResume()`。
 - 当一个Activity被另一个Activity覆盖时，前者会依次调用`onPause()`->`onStop()`。
