@@ -84,11 +84,10 @@ excerpt: Markdown简单使用手册。
 This is an [example link](http://example.com/).
 ```
 
-- 引用方式：
-
-I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].  
-[1]: http://google.com/        	"Google" 
-[2]: http://search.yahoo.com/  "Yahoo Search" 
+- 引用方式：  
+I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].    
+[1]: http://google.com/        	"Google"   
+[2]: http://search.yahoo.com/  "Yahoo Search"   
 [3]: http://search.msn.com/    "MSN Search"
   
 对应语法：
@@ -98,15 +97,13 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 [2]: http://search.yahoo.com/  "Yahoo Search" 
 [3]: http://search.msn.com/    "MSN Search"
 ```
-- 简单方式：
-
-	<http://www.github.com>
+- 简单方式：  
+	<http://www.github.com>  
 	<vinsta@github.com>
 
-　　对应语法：
-
-	`<http://www.github.com>`
-	`<vinsta@gmail.com>`
+　　对应语法：  
+　　`<http://www.github.com>`
+　　`<vinsta@gmail.com>`
 
 图片（Images）
 -
