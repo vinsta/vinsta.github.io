@@ -101,10 +101,9 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 - 简单方式：
 
 	<http://www.github.com>
-
 	<vinsta@github.com>
 
-对应语法：
+　　对应语法：
 
 	`<http://www.github.com>`
 	`<vinsta@gmail.com>`
