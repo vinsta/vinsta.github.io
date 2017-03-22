@@ -3,7 +3,7 @@ layout: post
 title:  "Markdown基本语法"
 categories: Tools
 tags: tools
-excerpt: Markdown简单使用手册。
+excerpt: Markdown简单使用手册
 ---
 
 * content
@@ -15,15 +15,15 @@ excerpt: Markdown简单使用手册。
 -  在文字开头加上“#”，通过“#”数量表示几级标题（支持1~6级标题，1级标题字体最大）
 
 ## 注释
--  在文字开头添加“>”表示注释  
+- 在文字开头添加“>”表示注释  
 实际效果：  
-	> Note：  
+> Note：  
 
-　　对应语法：  
+对应语法：  
 ```
-　> Note:
+> Note:
 ```
--  带层次的注释  
+- 带层次的注释  
 实际效果：  
 > Note1:  
 >   
@@ -31,37 +31,37 @@ excerpt: Markdown简单使用手册。
 >   
 > Note1:
 
-　　对应语法：  
+对应语法：  
 ```
-　> Note1:
-　> 
-　>> Note2:
-　> 
-　> Note1:
+> Note1:
+> 
+>> Note2:
+> 
+> Note1:
 ```
--  当“>”和文字之间添加五个空格时，格式会有变化  
-　实际效果：  
+- 当“>”和文字之间添加五个空格时，格式会有变化  
+实际效果：  
 >     Note:  
 >       
 
 对应语法：  
 ```
-　><whitespace><withspace><whitespace><whitespace><whitespace>Note:
-　><whitespace><withspace><whitespace><whitespace><whitespace>
+><whitespace><withspace><whitespace><whitespace><whitespace>Note:
+><whitespace><withspace><whitespace><whitespace><whitespace>
 ```
 
 ## 斜体
 文字前后各添加1个“*”或者“_”：
-> *Note*
+*Note*
 
 ## 粗体
 文字前后各添加2个“*”或者“_”：
-> **Note**
+**Note**
 
 ## 无序列表
 在文字前面添加“*”、“+”、“-”实现无序列表。符号和文字之间需要添加空格。
--  符号和文字之间需要添加空格
--  一个文档中不要使用多种无序列表的符号
+- 符号和文字之间需要添加空格
+- 一个文档中不要使用多种无序列表的符号
 
 ## 有序列表
 以数字开头，后面加上点号和空格：
@@ -80,7 +80,7 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 [1]: http://google.com/        	"Google"   
 [2]: http://search.yahoo.com/  "Yahoo Search"   
 [3]: http://search.msn.com/    "MSN Search"
-  
+
 对应语法：
 ```
 I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].  
@@ -89,21 +89,18 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 [3]: http://search.msn.com/    "MSN Search"
 ```
 - 简单方式：  
+<http://www.github.com>
+<vinsta@github.com>
 
-	<http://www.github.com>
-	
-	<vinsta@github.com>
-
-　　对应语法：  
-　　`<http://www.github.com>`  
-　　`<vinsta@gmail.com>`
+对应语法：  
+`<http://www.github.com>`  
+`<vinsta@gmail.com>`
 
 ## 图片（Images）
 图片的处理方式和链接的处理方式，非常的类似。
 - 内联方式：
-
-  ![alt text](/path/to/img.jpg "Title")  
-  `![alt text](/path/to/img.jpg "Title")`  
+![alt text](/path/to/img.jpg "Title")  
+`![alt text](/path/to/img.jpg "Title")`  
 - 引用方式：  
 ![alt text][id]  
 [id]: /path/to/img.jpg "Title"
@@ -121,8 +118,8 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 ## 脚注（footnote）
 实现方式与图片和链接类似：
 
-  hello[^hello]
-  [^hello]: hi
+hello[^hello]
+[^hello]: hi
 ```
 hello[^hello]
 [^hello]: hi
