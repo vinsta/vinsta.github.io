@@ -18,7 +18,7 @@ excerpt: Markdown简单使用手册。
 实际效果：  
 	> Note：  
 
-对应语法：  
+  对应语法：  
 　```
 　> Note:
 　```
