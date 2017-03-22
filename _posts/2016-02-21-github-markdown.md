@@ -72,25 +72,13 @@ tags: tools
 3. 列表三
 
 ## 链接（Links）
-- 内联方式：This is an [example link](http://example.com/).
+- 内联方式：
+This is an [example link](http://example.com/).
+对应语法：
 ```
 This is an [example link](http://example.com/).
 ```
 
-- 引用方式：
-
-I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].   
-[1]: http://google.com/        	"Google"   
-[2]: http://search.yahoo.com/  "Yahoo Search"   
-[3]: http://search.msn.com/    "MSN Search"
-
-对应语法：
-```
-I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3]. 
-[1]: http://google.com/        	"Google" 
-[2]: http://search.yahoo.com/  "Yahoo Search" 
-[3]: http://search.msn.com/    "MSN Search"
-```
 - 简单方式：  
 <http://www.github.com>
 
@@ -102,19 +90,9 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 
 ## 图片（Images）
 图片的处理方式和链接的处理方式，非常的类似。
-- 内联方式：
 
 ![alt text](/path/to/img.jpg "Title")  
 `![alt text](/path/to/img.jpg "Title")`  
-- 引用方式：
-
-![alt text][id] 
-[id]: /path/to/img.jpg "Title"
-
-```
-![alt text][id] 
-[id]: /path/to/img.jpg "Title"
-```
 
 ## 代码
 实现方式有两种：
@@ -136,6 +114,6 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 使用行内html来实现
 
 <u>划线内容</u>
-
 `<u>划线内容</u>`
+
 
