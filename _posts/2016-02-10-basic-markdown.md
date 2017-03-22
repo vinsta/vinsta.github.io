@@ -20,7 +20,7 @@ excerpt: Markdown简单使用手册。
 
 　　对应语法：  
 ```
-　　> Note:
+　> Note:
 ```
 -  带层次的注释  
 实际效果：  
@@ -93,7 +93,8 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 [3]: http://search.msn.com/    "MSN Search"
 ```
 - 简单方式：  
-	<http://www.github.com>  
+
+	<http://www.github.com>
 	<vinsta@github.com>
 
 　　对应语法：  
