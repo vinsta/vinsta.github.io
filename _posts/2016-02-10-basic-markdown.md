@@ -2,8 +2,8 @@
 layout: post
 title:  "Markdown基本语法"
 categories: Tools
-tags: tools
 excerpt: Markdown简单使用手册
+tags: tools
 ---
 
 * content
