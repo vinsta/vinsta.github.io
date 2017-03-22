@@ -19,14 +19,14 @@ excerpt: Markdown简单使用手册。
 	> Note：  
 
 　　对应语法：  
-　　`> Note:`
+　　```> Note:```
 -  带层次的注释  
 实际效果：  
-　> Note1:  
-　>   
-　>> Note2:  
-　>   
-　> Note1:  
+> Note1:  
+>   
+>> Note2:  
+>   
+> Note1:  
 对应语法：  
 　```
 　> Note1:
