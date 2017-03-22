@@ -19,9 +19,9 @@ excerpt: Markdown简单使用手册。
 	> Note：  
 
 　　对应语法：  
-　　```
+```
 　　> Note:
-　　```
+```
 -  带层次的注释  
 实际效果：  
 > Note1:  
@@ -30,7 +30,7 @@ excerpt: Markdown简单使用手册。
 >   
 > Note1:
 
-对应语法：  
+　　对应语法：  
 ```
 　> Note1:
 　> 
@@ -40,13 +40,14 @@ excerpt: Markdown简单使用手册。
 ```
 -  当“>”和文字之间添加五个空格时，格式会有变化  
 　实际效果：  
-　>     Note:  
-　>       
-　对应语法：  
-　```
+>     Note:  
+>       
+
+对应语法：  
+```
 　><whitespace><withspace><whitespace><whitespace><whitespace>Note:
 　><whitespace><withspace><whitespace><whitespace><whitespace>
-　```
+```
 
 斜体
 -
