@@ -14,45 +14,43 @@ excerpt: Markdown简单使用手册。
 
 注释
 -
--  在文字开头添加“>”表示注释
-
-实际效果：
-> Note：
-
-对应语法：
-```
-> Note:
-```
+-  在文字开头添加“>”表示注释  
+　　实际效果：
+　　> Note：
+　　对应语法：
+　　```
+　　> Note:
+　　```
 
 -  带层次的注释
 
-实际效果：
-> Note1:
-> 
->> Note2:
-> 
-> Note1:
+　　实际效果：
+　　> Note1:
+　　> 
+　　>> Note2:
+　　> 
+　　> Note1:
 
-对应语法：
-```
-> Note1:
-> 
->> Note2:
-> 
-> Note1:
-```
+　　对应语法：
+　　```
+　　> Note1:
+　　> 
+　　>> Note2:
+　　> 
+　　> Note1:
+　　```
 
 -  当“>”和文字之间添加五个空格时，格式会有变化
 
-实际效果：
->     Note:
->     
+　　实际效果：
+　　>     Note:
+　　>     
           
-对应语法：
-```
-><whitespace><withspace><whitespace><whitespace><whitespace>Note:
-><whitespace><withspace><whitespace><whitespace><whitespace>
-```
+　　对应语法：
+　　```
+　　><whitespace><withspace><whitespace><whitespace><whitespace>Note:
+　　><whitespace><withspace><whitespace><whitespace><whitespace>
+　　```
 
 斜体
 -
