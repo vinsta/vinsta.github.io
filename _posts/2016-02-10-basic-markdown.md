@@ -102,7 +102,7 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 	<vinsta@github.com>
 
 　　对应语法：  
-　　`<http://www.github.com>`
+　　`<http://www.github.com>`  
 　　`<vinsta@gmail.com>`
 
 图片（Images）
@@ -110,13 +110,10 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 图片的处理方式和链接的处理方式，非常的类似。
 - 内联方式：
 
-  ![alt text](/path/to/img.jpg "Title")
-  
-  `![alt text](/path/to/img.jpg "Title")`
-- 引用方式：
-
-  ![alt text][id]
-  
+  ![alt text](/path/to/img.jpg "Title")  
+  `![alt text](/path/to/img.jpg "Title")`  
+- 引用方式：  
+  ![alt text][id]  
   [id]: /path/to/img.jpg "Title"
 ```
 ![alt text][id] 
