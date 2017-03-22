@@ -99,19 +99,26 @@ I get 10 times more traffic from [Google][1] than from [Yahoo][2] or [MSN][3].
 [3]: http://search.msn.com/    "MSN Search"
 ```
 - 简单方式：
+
 	<http://www.github.com>
+
 	<vinsta@github.com>
 
 对应语法：
+
 	`<http://www.github.com>`
+
 	`<vinsta@gmail.com>`
 
 图片（Images）
 -
 图片的处理方式和链接的处理方式，非常的类似。
-- 内联方式：![alt text](/path/to/img.jpg "Title")
+- 内联方式：
+
+  ![alt text](/path/to/img.jpg "Title")
   `![alt text](/path/to/img.jpg "Title")`
 - 引用方式：
+
   ![alt text][id]
   [id]: /path/to/img.jpg "Title"
 ```
@@ -144,9 +151,13 @@ hello[^hello]
 中划线
 -
 在要划线的文字前后分别加上两个“~”
-  ~~划线内容~~
+
+~~划线内容~~
 
 下划线
 -
-使用行内html来实现，`<u>划线内容</u>`
-  <u>划线内容</u>
+使用行内html来实现
+
+<u>划线内容</u>
+
+`<u>划线内容</u>`
