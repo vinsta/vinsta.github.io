@@ -6,6 +6,9 @@ tags: tools
 excerpt: Markdown简单使用手册。
 ---
 
+* content
+{:toc}
+
 标题设置
 -
 有两种方式设置标题：
