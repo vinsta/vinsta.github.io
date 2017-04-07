@@ -29,9 +29,10 @@ ElementTree是python自带的处理xml格式文件的模块，位于`lib\xml\etr
   - attrib：保存element所有属性的字典
   - text：包含element文本内容的字符串
   - tail：保护element结束符之后文本的可选字符串
+  - Element的长度是它包含的所有subElement的个数。
   - 此外，还有一个sequence结构用于保存它的subElement
-`<tag attrib>text<child/>...</tag>tail`
-Element的长度是它包含的所有subElement的个数。
+
+  `<tag attrib>text<child/>...</tag>tail`
 
 ## 向element中添加和删除subElement
 ```python
