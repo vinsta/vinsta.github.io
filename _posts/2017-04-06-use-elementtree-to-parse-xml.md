@@ -42,9 +42,9 @@ remove(subElement)
 
 ## 查找element
 - `find(path, namespace = None)`：path可以是element名字（tag），或者XPath。
-- `findnext(path, default = None, namespace = None)：default是未找到element时的返回值。
-- `findall(path, namespace = None)：返回包含所有匹配的element的列表。
-- `iterfind(path, namespace = None)：返回包含所有匹配的element的迭代器。
+- `findnext(path, default = None, namespace = None)`：default是未找到element时的返回值。
+- `findall(path, namespace = None)`：返回包含所有匹配的element的列表。
+- `iterfind(path, namespace = None)`：返回包含所有匹配的element的迭代器。
 
 ## 清空
 此方法删除所有的subElement，attrib，设置text和tail为None
