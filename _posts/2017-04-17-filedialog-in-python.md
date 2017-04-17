@@ -12,9 +12,8 @@ excerpt: 简单介绍Python中几种文件对话框。
 Python的Tkinter模块提供了下面几种常用的文件对话框，位于python安装目录的`lib/tkinter/filedialog.py`。
 
 ## FileDialog
-基本的文件选择对话框，使用`go()`方法返回指定文件的路径。
-界面如下：
-![文件对话框](..\image\filedialog.png)
+基本的文件选择对话框，界面类似于文件管理器，左边是文件夹列表，右边是当前目录下的文件列表。
+使用`go()`方法可以返回选定文件的路径。
 ```python
 filename = tkinter.FileDialog(root).go()
 ```
