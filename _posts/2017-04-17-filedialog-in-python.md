@@ -14,15 +14,13 @@ Python的Tkinter模块提供了下面几种常用的文件对话框，位于pyth
 ## FileDialog
 基本的文件选择对话框，使用`go()`方法返回指定文件的路径。
 界面如下：
-![文件对话框](../image/filedialog.png)
-使用方式：
+![文件对话框](..\image\filedialog.png)
 ```python
 filename = tkinter.FileDialog(root).go()
 ```
 
 ## LoadFileDialog
 从FileDialog派生，外观跟FileDialog相同，区别在于它在退出之前会校验选择的文件是否存在。
-使用方式：
 ```python
 filename = tkinter.LoadFileDialog(root).go()
 ```
@@ -32,14 +30,12 @@ filename = tkinter.LoadFileDialog(root).go()
 - 判断是否存在同名目录。
 - 如果指定的文件已存在，会弹出一个小对话框提示是否覆盖已有文件。
 - 会判断指定的上一级目录是否存在。
-使用方式：
 ```python
 filename = tkinter.SaveFileDialog(root).go()
 ```
 
 ## askopenfilename
 filedialog模块提供的一个方法，可以打开一个跟操作系统原生对话框类似的文件选择对话框。它返回选定文件的路径。
-使用方式：
 ```python
 filename = tkinter.filedialog.askopenfilename()
 ```
