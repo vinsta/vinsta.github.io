@@ -33,7 +33,7 @@ Python的正则表达式模块位于python安装目录的`lib/re.py`。表达式
   - \W：匹配一个Unicode非单词，或带re.ASCII标记的[^a-zA-Z0-9_]
   - \\\：匹配"\\"字符
 - []：表示一个字符集，若字符集以"^"开始，则表示字符集的补集
-- "|"：A|B，匹配A或者B
+- A|B：匹配A或者B
 - (...)：匹配括号中的表达式
 - (?aiLmsux)：为表达式设置flag（A，I，L，M，S，U，X）
   - A：ASCII，使\w，\W，\b，\B，\d，\D匹配对应的ASCII字符
@@ -51,7 +51,7 @@ Python的正则表达式模块位于python安装目录的`lib/re.py`。表达式
 - (?=...)："..."匹配下一个
 - (?!...)："..."不匹配下一个
 - (?<=...)：前面不是"..."
-- (?(id/name)yes|no)：如果"id/name"匹配，则匹配"yes"，否则匹配"no"（no是可选参数）
+- (?(id/name)yes\|no)：如果"id/name"匹配，则匹配"yes"，否则匹配"no"（no是可选参数）
 
 ## 方法
 ### match(pattern, string flags = 0)
