@@ -31,20 +31,20 @@ Python的正则表达式模块位于python安装目录的`lib/re.py`。表达式
   - \S：匹配Unicode非空白，或带re.ASCII标记的[^\t\n\r\f\v]
   - \w：匹配一个Unicode单词，或带re.ASCII标记的[a-zA-Z0-9_]
   - \W：匹配一个Unicode非单词，或带re.ASCII标记的[^a-zA-Z0-9_]
-  - \\：匹配"\"字符
+  - \\\：匹配"\\"字符
 - []：表示一个字符集，若字符集以"^"开始，则表示字符集的补集
 - "|"：A|B，匹配A或者B
 - (...)：匹配括号中的表达式
 - (?aiLmsux)：为表达式设置flag（A，I，L，M，S，U，X）
- - A：ASCII，使\w，\W，\b，\B，\d，\D匹配对应的ASCII字符
- - I：IGNORECASE，进行不区分大小写的匹配
- - L：LOCALE，使\w，\W，\b，\B与当前语言无关
- - M：MULTILINE
-  - "^"匹配行或者字符串的起始位置
-  - "$"匹配行或者字符串的结束位置
- - S：DOTALL，"."匹配任意字符，包括新行
- - U：UNICODE，用于兼容性，字符串模式下忽略，字节模式下禁用
- - X：忽略空格和注释
+  - A：ASCII，使\w，\W，\b，\B，\d，\D匹配对应的ASCII字符
+  - I：IGNORECASE，进行不区分大小写的匹配
+  - L：LOCALE，使\w，\W，\b，\B与当前语言无关
+  - M：MULTILINE
+    - "^"匹配行或者字符串的起始位置
+    - "$"匹配行或者字符串的结束位置
+  - S：DOTALL，"."匹配任意字符，包括新行
+  - U：UNICODE，用于兼容性，字符串模式下忽略，字节模式下禁用
+  - X：忽略空格和注释
 - (?P<name>...)：匹配的子串可以通过name访问
 - (?P=name)：匹配之前命名的子串
 - (?#...)：注释，可忽略
@@ -82,7 +82,7 @@ Python的正则表达式模块位于python安装目录的`lib/re.py`。表达式
 构造一个表达式对象，便于以后重复使用
 
 ## 实例
-···python
+```python
 >>> import re
 >>> s = "hello123world321!!!"
 >>> p = r'[a-zA-Z]+'
@@ -164,4 +164,4 @@ IndexError: no such group
 >>> m
 [('hello', '123'), ('world', '321'), ('', ''), ('', ''), ('', ''), ('', '')]
 >>> 
-···
+```
